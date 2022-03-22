@@ -1,39 +1,23 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import { createPinia } from 'pinia'
+// import './styles/element/index.scss' // vite.config.ts中配置了additionalData，就不需要引入了
 import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+// import 'element-plus/dist/index.css' // 这个也不要引了
+
+import router from '@/router'
+import store from '@/store'
+
+import App from './App.vue'
 
 // import LitecaseDesign from 'litecase-design'
 // import { LButton } from 'litecase-design'
 
-import App from './App.vue'
-import Home from './views/Home/index.vue'
-import Product from './views/Product/index.vue'
-import User from './views/User/index.vue'
-
-// In this channel, you will learn how to create our own hooks in our vue project
-
-// Here we have confiured the router alredy
-// So we can link to another page
-
-// And now, let's get started
-// first we can create a folder in src folder, named 'hooks'
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    { path: '/', component: Home },
-    { path: '/product', component: Product },
-    { path: '/user', component: User },
-  ],
-})
-
 const app = createApp(App)
 
 // app.use(LitecaseDesign)
+
 app.use(router)
-app.use(createPinia())
+app.use(store)
 app.use(ElementPlus)
 
 app.mount('#app')

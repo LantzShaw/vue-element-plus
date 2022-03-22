@@ -6,7 +6,7 @@
     <br>
     <span>y:</span> <span>{{y}}</span>
   </div>
-  <el-button>Button</el-button>
+  <el-button type="primary">Button</el-button>
   <l-button label="ddd"></l-button>
   <l-input />
 </template>

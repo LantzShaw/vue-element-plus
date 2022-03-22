@@ -17,7 +17,7 @@
 <script lang="ts" setup>
 import { ref, computed, defineEmits } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useCounterStore } from '../../stores/counter'
+import { useCounterStore } from '@/store/modules/counter'
 import UserItem from './UserItem.vue'
 
 defineOptions({
