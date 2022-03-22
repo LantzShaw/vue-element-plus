@@ -10,8 +10,14 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    // "noImplicitThis": false,
     "lib": ["esnext", "dom"],
-    "types": ["unplugin-vue-define-options"]
+    "types": ["unplugin-vue-define-options"],
+    // ts项目需要配置如下属性
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["*", "src/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
