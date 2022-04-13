@@ -11,7 +11,7 @@
   </p>
   <button @click="update">更新</button>
 
-  <user-item @change="changeHandler" />
+  <user-item name="hello world" @change="changeHandler" />
 </template>
 
 <script lang="ts" setup>
@@ -21,7 +21,7 @@ import { useCounterStore } from '@/store/modules/counter'
 import UserItem from './UserItem.vue'
 
 defineOptions({
-  name: 'User'
+  name: 'User',
 })
 
 const props = defineProps({})
@@ -45,13 +45,21 @@ const update = () => {
   emit('on-change', 'hello')
 }
 
-const changeHandler = (name) => {
+const changeHandler = name => {
   console.log(name)
 }
 
 console.log(count)
 console.log(useCounterStore())
+
+defineExpose({
+  count,
+  increase,
+  decrease,
+  name,
+  update,
+  changeHandler,
+})
 </script>
 
-<style scoped>
-</style>
+<style lang="scss" scoped></style>

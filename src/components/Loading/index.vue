@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>Loading...</div>
 </template>
 
 <script lang="ts">
@@ -7,11 +7,10 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'Loading',
-  setup () {
+  setup() {
     return {}
-  }
+  },
 })
 </script>
 
-<style scoped>
-</style>
+<style lang="scss" scoped></style>
