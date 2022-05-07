@@ -1,13 +1,9 @@
 <template>
-  <div>User Item</div>
-  <button @click="clickHandler">传值</button>
-  <div>{{ name }}</div>
+  <div></div>
 </template>
 
 <script lang="ts" setup>
 import { reactive, ref, watch } from 'vue'
-
-// useSlots 和 useAttrs
 
 defineOptions({
   name: 'UserItem',
@@ -64,7 +60,7 @@ watch(
 )
 
 watch(
-  // [props.name, props.age], // 直接这样写也可以吗
+  //TODO: [props.name, props.age], // 直接这样写也可以吗
   [() => props.name, () => props.age],
   (newValue, oldValue) => {
     console.log('name or age changed')
@@ -89,43 +85,13 @@ watch(
   }
 )
 
-// 可写可不写，写了之后就一定要按照return的写法，不然会报红
-// return { title, info, clickHandler }
-
 defineExpose({
   title,
   info,
   clickHandler,
 })
 
-// TS专属
-// 导入 defineProps 组件
-// import { defineProps } from 'vue'
-
-// // 对象类型接口
-// interface UserInfo {
-//   id: number
-//   age: number
-// }
-
-// // 定义 props
-// defineProps<{
-//   name: string
-//   phoneNumber: number
-//   userInfo: UserInfo
-//   tags: string[]
-// }>()
-
-// 第二种
-// import { defineProps, withDefaults } from 'vue'
-
-// withDefaults(defineProps<{
-//   size?: number
-//   labels?: string[]
-// }>(), {
-//   size: 3,
-//   labels: () => ['default label']
-// })
+// 参考文章: https://zhuanlan.zhihu.com/p/465651353
 </script>
 
 <style lang="scss" scoped></style>

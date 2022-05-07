@@ -10,11 +10,11 @@
   </div>
   <el-button type="primary">Button</el-button>
   <l-button label="ddd"></l-button>
-  <l-input />
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+
 import useMousePosition from '@/hooks/useMousePosition'
 
 const { x, y } = useMousePosition()

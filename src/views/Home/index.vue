@@ -9,22 +9,37 @@
     {{ foo }}
   </div>
 
+  <Bar :xAxisData="xAxisData" :seriesData="seriesData" />
+
   <button @click="clickHandler">Click</button>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from 'vue'
+import { Bar, Line, Pie, BarAndLine, MultiBar } from '@/components/charts'
+
+//TODO: 类型可以export吗？
+export interface UserInfo {
+  name: string
+  gender: string
+  hobbiles: string[]
+  age?: number
+}
 
 export default defineComponent({
   name: 'Home',
   // 只执行一次
   setup() {
-    const count = ref(10) // ref 返回的是一个Ref对象
+    const xAxisData = ref(['2022-01', '2022-02', '2022-03'])
+    const seriesData = ref(['20', '25', '10'])
+
+    // ref 返回的是一个Ref对象
+    const count = ref(10)
 
     // obj 被代理的对象（目标对象） foo 则是代理对象
     // 内部基于ES6的Proxy实现，通过代理对象操作原对象内部数据都是响应式
-    const obj: any = { name: 'Lantz', gender: 'male', hobbiles: ['game'] }
-    const foo = reactive<any>(obj) // 返回的是Proxy
+    const obj: UserInfo = { name: 'Lantz', gender: 'male', hobbiles: ['game'] }
+    const foo = reactive<UserInfo>(obj) // 返回的是Proxy
 
     console.log('foo', count, foo)
 
@@ -50,6 +65,8 @@ export default defineComponent({
     return {
       count,
       foo,
+      xAxisData,
+      seriesData,
       increaseHandler,
       clickHandler,
     }

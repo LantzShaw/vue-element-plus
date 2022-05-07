@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, defineEmits } from 'vue'
+import { ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useCounterStore } from '@/store/modules/counter'
 import UserItem from './UserItem.vue'
@@ -51,6 +51,20 @@ const changeHandler = name => {
 
 console.log(count)
 console.log(useCounterStore())
+
+watch(
+  () => count,
+  (newValue, oldValue) => {
+    console.log('count changed')
+  }
+)
+
+watch(
+  () => name.value, // TODO: 这里要.value吗？
+  (newValue, oldValue) => {
+    console.log('name changed')
+  }
+)
 
 defineExpose({
   count,

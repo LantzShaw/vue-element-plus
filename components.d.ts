@@ -4,6 +4,8 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Bar: typeof import('./src/components/charts/Bar/index.vue')['default']
+    BarAndLine: typeof import('./src/components/charts/BarAndLine/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElContainer: typeof import('element-plus/es')['ElContainer']
@@ -20,7 +22,11 @@ declare module 'vue' {
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    Line: typeof import('./src/components/charts/Line/index.vue')['default']
     Loading: typeof import('./src/components/Loading/index.vue')['default']
+    MultiBar: typeof import('./src/components/charts/MultiBar/index.vue')['default']
+    MultiLine: typeof import('./src/components/charts/MultiLine/index.vue')['default']
+    Pie: typeof import('./src/components/charts/Pie/index.vue')['default']
   }
 }
 

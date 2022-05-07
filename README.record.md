@@ -240,3 +240,15 @@ export default function useMousePosition() {
     delete proxyUser.name
 
 ```
+
+### typescript
+1. https://zhuanlan.zhihu.com/p/455991366
+2. https://www.cnblogs.com/gaoht/p/11720380.html
+
+
+```sh
+as unknow as string
+```
+
+**ts教程**
+https://juejin.cn/post/7068081327857205261

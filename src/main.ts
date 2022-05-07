@@ -12,6 +12,8 @@ import App from './App.vue'
 // import LitecaseDesign from 'litecase-design'
 // import { LButton } from 'litecase-design'
 
+// import litecharts from 'litecharts'
+
 const app = createApp(App)
 
 // app.use(LitecaseDesign)
@@ -19,5 +21,6 @@ const app = createApp(App)
 app.use(router)
 app.use(store)
 app.use(ElementPlus)
+// app.use(litecharts)
 
 app.mount('#app')
