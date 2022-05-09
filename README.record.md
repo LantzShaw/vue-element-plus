@@ -252,3 +252,16 @@ as unknow as string
 
 **ts教程**
 https://juejin.cn/post/7068081327857205261
+
+```sh
+# 第一种获取target值的方式：
+# 通过vue中的响应式对象可使用 toRaw() 方法获取原始对象
+let list = toRaw(state.list)
+
+
+
+# 第二种获取target值的方式，通过json序列化之后可获取值
+
+JSON.parse(JSON.stringfy(state.getters.list))
+
+```

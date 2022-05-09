@@ -9,14 +9,27 @@
     {{ foo }}
   </div>
 
-  <Bar :xAxisData="xAxisData" :seriesData="seriesData" />
+  <!-- <Bar
+    :title="'Title'"
+    :isLoading="true"
+    :themeMode="'light'"
+    :legendData="['helo']"
+    :series="['hello']"
+    :seriesColor="[['#00daff', '#00daff']]"
+    :xAxisData="xAxisData"
+    :seriesData="seriesData"
+  /> -->
+
+  <Bar />
 
   <button @click="clickHandler">Click</button>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from 'vue'
-import { Bar, Line, Pie, BarAndLine, MultiBar } from '@/components/charts'
+// import { Bar, Line, Pie, BarAndLine, MultiBar } from '@/components/charts'
+
+import { Bar } from 'litecharts'
 
 //TODO: 类型可以export吗？
 export interface UserInfo {

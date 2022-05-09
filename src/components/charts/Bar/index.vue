@@ -9,8 +9,7 @@
 
 <script lang="ts" name="Bar" setup>
 import { ref, provide, watch, onMounted } from 'vue'
-import * as echarts from 'echarts'
-import { use } from 'echarts/core'
+import { use, graphic } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
 import { BarChart } from 'echarts/charts'
 import VChart, { THEME_KEY } from 'vue-echarts'
@@ -26,7 +25,17 @@ import type { Props } from './index'
 
 use([CanvasRenderer, BarChart, TitleComponent, TooltipComponent, LegendComponent, GridComponent])
 
-const props = withDefaults(defineProps<Props>(), {})
+const props = withDefaults(defineProps<Props>(), {
+  // title: 'Title',
+  // isLoading: false,
+  // themeColor: () => ({ backgroundColor: '#fff', textColor: '#000' }),
+  // themeMode: 'light',
+  // legendData: () => ['helo'],
+  // xAxisData: () => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  // series: () => [],
+  // seriesData: () => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  // seriesColor: () => [['#00daff', '#00daff']],
+})
 
 const { title, legendData, xAxisData, seriesData, themeMode, themeColor, seriesColor, series } =
   props
@@ -127,7 +136,7 @@ const setupSeries = () => {
         barBorderRadius: [4, 4, 0, 0],
         normal: {
           color: ({ dataIndex }) => {
-            return new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+            return new graphic.LinearGradient(0, 1, 0, 0, [
               {
                 offset: 0,
                 color:
