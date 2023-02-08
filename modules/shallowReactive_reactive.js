@@ -3,9 +3,11 @@ const shallowReactiveHandler = {
   get(target, prop) {
     return Reflect.get(target, prop)
   },
+
   set(target, prop, value) {
     return true
   },
+
   deleteProperty(target, prop) {
     return true
   },
@@ -53,14 +55,15 @@ function reactive(target) {
 }
 
 /************  readonly *************/
-
 const readonlyHandler = {
   get(target, prop) {
     return Reflect.get(target, prop)
   },
+
   set(target, prop, value) {
     console.warn("This is readonly data, you can't set it")
   },
+
   deleteProperty(target, prop) {
     console.warn("This is readonly data, you can't delete it")
   },
@@ -85,18 +88,19 @@ function readonly(target) {
 }
 
 /************  shallowReadonly *************/
-
 const shallowReadonlyeHandler = {
   get(target, prop) {
     const result = Reflect.get(target, prop)
 
     return result
   },
+
   set(target, prop, value) {
     const result = Reflect.set(target, prop, value)
 
     return result
   },
+
   deleteProperty(target, prop) {
     const result = Reflect.deleteProperty(target, prop)
 
