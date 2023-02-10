@@ -1,14 +1,14 @@
 # Record
 
-deineProps中没有设置，就需要返回，不然会报错
+deineProps 中没有设置，就需要返回，不然会报错
 return {count, msg}
 
-**defineProps获取组件传值**
+**defineProps 获取组件传值**
 
 ```js
   defineProps<{ // 采用ts专有声明，无默认值 小写
     msg: string,
-    num?: number 
+    num?: number
   }>()
      // 采用ts专有声明，有默认值
     interface Props {
@@ -19,7 +19,7 @@ return {count, msg}
         msg: 'hello',
         labels: () => ['one', 'two']
     })
-    
+
   defineProps({ // 非ts专有声明 大写
     msg: String,
     num: {
@@ -29,7 +29,7 @@ return {count, msg}
   })
 ```
 
-**defineEmit子组件向父组件事件传递** 
+**defineEmit 子组件向父组件事件传递**
 
 ```js
    /*ts专有*/
@@ -38,13 +38,13 @@ return {count, msg}
   }>()
     /*非ts专有*/
   const emit= defineEmits(['click'])
-  
+
   const clickThis = () => {
     emit('click',2)
   }
 ```
 
-**defineExpose子组件暴露自己的属性**
+**defineExpose 子组件暴露自己的属性**
 
 ```vue
 <template>
@@ -55,12 +55,11 @@ return {count, msg}
 import { ref } from 'vue'
 const count = ref(123456)
 defineExpose({
-  count
+  count,
 })
 </script>
 
-<style scoped lang="less">
-</style>
+<style scoped lang="less"></style>
 ```
 
 **父组件获取属性**
@@ -80,11 +79,8 @@ const helloClick = () => {
 }
 </script>
 
-
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>
 ```
-
 
 **defineOptions()的使用**
 
@@ -93,7 +89,8 @@ npm i unplugin-vue-define-options -D
 
 
 ```
-**配置vite.config.ts**
+
+**配置 vite.config.ts**
 
 ```ts
 import { defineConfig } from 'vite'
@@ -104,10 +101,9 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue(), DefineOptions()],
 })
-
 ```
 
-**tsconfig.json 添加types为如下所示：**
+**tsconfig.json 添加 types 为如下所示：**
 
 ```json
 "compilerOptions": {
@@ -117,12 +113,11 @@ export default defineConfig({
 ```
 
 ```vue
-
 <script setup lang="ts">
 import { ref } from 'vue'
 
 defineOptions({
-  name: 'HelloWorld'
+  name: 'HelloWorld',
 })
 
 // ts 专有声明 不能设置默认值 小写
@@ -131,19 +126,17 @@ defineOptions({
 // 非ts专有声明 可设置默认值 大写
 defineProps({
   count: Number,
-   msg: {
-     type: String,
-     default: "hello"
-   }
-  })
+  msg: {
+    type: String,
+    default: 'hello',
+  },
+})
 
 const count = ref(0)
 // const msg = ref(0)
 
 // deineProps中没有设置，就需要返回，不然会报错
 // return {count, msg}
-
-
 </script>
 
 <template>
@@ -151,7 +144,6 @@ const count = ref(0)
 </template>
 
 <style scoped></style>
-
 ```
 
 ```sh
@@ -242,15 +234,15 @@ export default function useMousePosition() {
 ```
 
 ### typescript
+
 1. https://zhuanlan.zhihu.com/p/455991366
 2. https://www.cnblogs.com/gaoht/p/11720380.html
-
 
 ```sh
 as unknow as string
 ```
 
-**ts教程**
+**ts 教程**
 https://juejin.cn/post/7068081327857205261
 
 ```sh
@@ -264,4 +256,25 @@ let list = toRaw(state.list)
 
 JSON.parse(JSON.stringfy(state.getters.list))
 
+```
+
+### leaflet
+
+```sh
+什么是leaflet？
+leaflet是一个轻量级的开源js地图组件，适用于移动设备，用法简单性能优越，如果你曾经使用过高德或者百度的地图api的话，相信你可以很轻易的上手更加简单的leaflet
+
+leaflet是怎么运作的？
+leaflet的工作方法和高德百度之类的并不一样，由于leaflet是个开源项目，所以它本身只有地图组件并不提供地图内容，也就是说，我们不需要为了使用leaflet而去注册key。
+
+所以当我们在页面中创建了地图之后，还需要去其他的地图内容提供商（ArcGIS）那里加载地图，有可能需要申请key，当然，在下文里我会给出一个免费又好看的地图内容的。
+
+
+ArcGIS提供商：google地图 高德地图 百度地图 mapbox esri-leaflet
+https://developers.arcgis.com/esri-leaflet/samples/composing-basemaps/
+
+
+一般为256px*256px的瓦片地图
+
+参考文章: https://www.cnblogs.com/jiaobaba/archive/2020/05/08/12850101.html
 ```
