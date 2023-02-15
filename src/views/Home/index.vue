@@ -48,7 +48,7 @@ const initMap = () => {
   // ).addTo(map)
 
   // /api/tilesets/{tilesetId}/{z}/{x}/{y}.{format}
-  L.tileLayer('http://localhost:1234/api/tilesets/admin/{z}/{x}/{y}.{format}', {}).addTo(map)
+  L.tileLayer('http://localhost:1234/api/tilesets/admin/{z}/{x}/{y}.mvt', {}).addTo(map)
 
   // L.tileLayer('http://{s}.tiles.maps.sputnik.ru/{z}/{x}/{y}.png', {}).addTo(map)
 
